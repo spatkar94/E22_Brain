@@ -75,9 +75,10 @@ intra_cluster_correlation <- function(mat,celltypes){
         start = Sys.time()
         cor.dat = NULL
         
-        #set as 0 if less than 5 observations exist
+        #set as 0,1 if less than 5 observations exist
         if(length(idx) < 5){
             cor.dat = matrix(0,nrow = nrow(mat),2)
+            cor.dat[,2] = 1
             next
         }
         
